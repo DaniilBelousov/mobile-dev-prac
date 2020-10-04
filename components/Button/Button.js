@@ -1,23 +1,25 @@
 import React, { useState } from 'react';
-import { View, Button as ButtonRN } from 'react-native';
+import { Text, Button as ButtonRN, TouchableOpacity } from 'react-native';
 
 import style from './Button.styles';
 
 const Button = (props) => {
     const {
-        title,
         onPress,
-        color
+        title,
+        activeOpacity = 0.8,
     } = props;
 
   return(
-    <View style={style.contaienr}>
-      <ButtonRN
-        title={title}
-        color={color}
-        onPress={onPress}
-      />
-    </View>
+    <TouchableOpacity
+      onPress={onPress}
+      style={style.button}
+      activeOpacity={activeOpacity}
+    >
+      <Text style={style.buttonText}>
+        {title}
+      </Text>
+     </TouchableOpacity>
   );
 };
 
